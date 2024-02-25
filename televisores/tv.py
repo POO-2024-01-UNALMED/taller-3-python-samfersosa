@@ -45,6 +45,12 @@ class TV:
     def getEstado(self):
         return self.estado
 
+    def setControl(self, control):
+        self.control = control
+
+    def getControl(self):
+        return self.control
+
     @classmethod
     def getNumTV(cls):
         return cls.numTV
