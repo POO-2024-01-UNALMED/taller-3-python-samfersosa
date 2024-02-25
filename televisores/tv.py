@@ -1,44 +1,49 @@
 class TV:
-    numTV = 0
-
-    def __init__(self, marca, estado=False):
+    def __init__(self, marca, estado):
         self.marca = marca
-        self.canal = 1
-        self.precio = 500
         self.estado = estado
-        self.volumen = 1
-        self.control = None
-        TV.numTV += 1
+        self.canal = 1  # Atributo para almacenar el canal actual
+        self.volumen = 1  # Atributo para almacenar el volumen actual
+        self.control = None  # Atributo para almacenar el control remoto asociado
 
-    def turnOn(self):
-        self.estado = True
-
-    def turnOff(self):
-        self.estado = False
-
-    def getEstado(self):
-        return self.estado
-
-    def setMarca(self, marca):
-        self.marca = marca
-
-    def getMarca(self):
-        return self.marca
-
-    def setCanal(self, canal):
-        if self.estado and 1 <= canal <= 120:
-            self.canal = canal
-
-    def getCanal(self):
+    # Métodos getter y setter para los atributos de la clase TV
+    def get_canal(self):
         return self.canal
 
-    def setVolumen(self, volumen):
-        if self.estado and 0 <= volumen <= 7:
-            self.volumen = volumen
+    def set_canal(self, canal):
+        self.canal = canal
 
-    def getVolumen(self):
+    def get_volumen(self):
         return self.volumen
 
-    @classmethod
-    def getNumTV(cls):
-        return cls.numTV
+    def set_volumen(self, volumen):
+        self.volumen = volumen
+
+    def get_estado(self):
+        return self.estado
+
+    def get_marca(self):
+        return self.marca
+
+    def set_marca(self, marca):
+        self.marca = marca
+
+    def set_control(self, control):
+        self.control = control
+
+    def get_control(self):
+        return self.control
+
+    # Métodos para cambiar el canal hacia arriba y hacia abajo
+    def canal_up(self):
+        self.canal += 1
+
+    def canal_down(self):
+        self.canal -= 1
+
+    # Métodos para cambiar el volumen hacia arriba y hacia abajo
+    def volumen_up(self):
+        self.volumen += 1
+
+    def volumen_down(self):
+        self.volumen -= 1
