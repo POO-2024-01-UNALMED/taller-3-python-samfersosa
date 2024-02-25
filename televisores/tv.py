@@ -1,52 +1,44 @@
 class TV:
     numTV = 0
 
-    def __init__(self, marca, estado):
-        self.__marca = marca
-        self.__estado = estado
-        self.__canal = 1
-        self.__volumen = 1
-        self.__precio = 500
-        self.__control = None
+    def __init__(self, marca, estado=False):
+        self.marca = marca
+        self.canal = 1
+        self.precio = 500
+        self.estado = estado
+        self.volumen = 1
+        self.control = None
         TV.numTV += 1
 
-    def get_marca(self):
-        return self.__marca
+    def turnOn(self):
+        self.estado = True
 
-    def set_marca(self, marca):
-        self.__marca = marca
+    def turnOff(self):
+        self.estado = False
 
-    def get_estado(self):
-        return self.__estado
+    def getEstado(self):
+        return self.estado
 
-    def turn_on(self):
-        self.__estado = True
+    def setMarca(self, marca):
+        self.marca = marca
 
-    def turn_off(self):
-        self.__estado = False
+    def getMarca(self):
+        return self.marca
 
-    def canal_up(self):
-        if self.__estado and self.__canal < 120:
-            self.__canal += 1
+    def setCanal(self, canal):
+        if self.estado and 1 <= canal <= 120:
+            self.canal = canal
 
-    def canal_down(self):
-        if self.__estado and self.__canal > 1:
-            self.__canal -= 1
+    def getCanal(self):
+        return self.canal
 
-    def volumen_up(self):
-        if self.__estado and self.__volumen < 7:
-            self.__volumen += 1
+    def setVolumen(self, volumen):
+        if self.estado and 0 <= volumen <= 7:
+            self.volumen = volumen
 
-    def volumen_down(self):
-        if self.__estado and self.__volumen > 0:
-            self.__volumen -= 1
-
-    def get_control(self):
-        return self.__control
-
-    def set_control(self, control):
-        self.__control = control
+    def getVolumen(self):
+        return self.volumen
 
     @classmethod
-    def get_num_tv(cls):
+    def getNumTV(cls):
         return cls.numTV
