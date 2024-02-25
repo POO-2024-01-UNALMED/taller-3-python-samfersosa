@@ -1,49 +1,51 @@
 class TV:
+    numTV = 0
+
     def __init__(self, marca, estado):
         self.marca = marca
         self.estado = estado
-        self.canal = 1  # Atributo para almacenar el canal actual
-        self.volumen = 1  # Atributo para almacenar el volumen actual
-        self.control = None  # Atributo para almacenar el control remoto asociado
+        self.canal = 1
+        self.precio = 500
+        self.volumen = 1
+        self.control = None
+        TV.numTV += 1
 
-    # Métodos getter y setter para los atributos de la clase TV
-    def get_canal(self):
-        return self.canal
-
-    def set_canal(self, canal):
-        self.canal = canal
-
-    def get_volumen(self):
-        return self.volumen
-
-    def set_volumen(self, volumen):
-        self.volumen = volumen
-
-    def get_estado(self):
-        return self.estado
-
-    def get_marca(self):
-        return self.marca
-
-    def set_marca(self, marca):
+    def setMarca(self, marca):
         self.marca = marca
 
-    def set_control(self, control):
-        self.control = control
+    def getMarca(self):
+        return self.marca
 
-    def get_control(self):
-        return self.control
+    def setCanal(self, canal):
+        if self.estado and 1 <= canal <= 120:
+            self.canal = canal
 
-    # Métodos para cambiar el canal hacia arriba y hacia abajo
-    def canal_up(self):
-        self.canal += 1
+    def getCanal(self):
+        return self.canal
 
-    def canal_down(self):
-        self.canal -= 1
+    def setPrecio(self, precio):
+        self.precio = precio
 
-    # Métodos para cambiar el volumen hacia arriba y hacia abajo
-    def volumen_up(self):
-        self.volumen += 1
+    def getPrecio(self):
+        return self.precio
 
-    def volumen_down(self):
-        self.volumen -= 1
+    def setVolumen(self, volumen):
+        if self.estado and 0 <= volumen <= 7:
+            self.volumen = volumen
+
+    def getVolumen(self):
+        return self.volumen
+
+    def turnOn(self):
+        self.estado = True
+
+    def turnOff(self):
+        self.estado = False
+
+    def getEstado(self):
+        return self.estado
+
+    @classmethod
+    def getNumTV(cls):
+        return cls.numTV
+
