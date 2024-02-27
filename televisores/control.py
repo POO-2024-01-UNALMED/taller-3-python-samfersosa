@@ -43,3 +43,6 @@ class Control:
 
     def setTv(self, tv):
         self.__tv = tv
+    def setMarca(self, marca):
+        if self.__tv:
+            self.__tv.getMarca().setNombre(marca.getNombre())
