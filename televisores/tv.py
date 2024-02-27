@@ -70,3 +70,9 @@ class TV:
 
     def setControl(self, control):
         self.__control = control
+    
+    def setMarca(self, marca):
+        self.__marca = marca
+
+    def getMarca(self):
+        return self.__marca
